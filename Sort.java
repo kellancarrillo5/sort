@@ -17,7 +17,7 @@ public class Sort {
 	 * @return a new list that implements the IndexedUnsortedList interface
 	 */
 	private static <T> IndexedUnsortedList<T> newList() {
-		return new IUDoubleLinkedList<T>(); // TODO: replace with your IUDoubleLinkedList for extra-credit
+		return new IUDoubleLinkedList<T>(); // replace with your IUDoubleLinkedList for extra-credit
 	}
 
 	/**

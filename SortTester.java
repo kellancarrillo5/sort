@@ -88,7 +88,7 @@ public class SortTester {
 	 * in this one location rather than in every test.
 	 * @return [ ]
 	 */
-	private static IndexedUnsortedList<Integer> newList() {	//TODO: specify the underlying list class, here
+	private static IndexedUnsortedList<Integer> newList() {	// specify the underlying list class, here
 		return new IUDoubleLinkedList<Integer>();
 	}
 	
