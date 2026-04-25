@@ -68,17 +68,17 @@ public class Sort {
 		if (list.size() <= 1) {
 			return;
 		}
-		// 1st, remove pivot
+		// Remove pivot
 		T pivot = list.removeFirst();
 
-		// 2nd, assign next lists
+		// Assign new lists
 		IndexedUnsortedList<T> left = newList();
 		IndexedUnsortedList<T> right = newList();
 
 		ListIterator<T> it = list.listIterator();
 		while (it.hasNext()) {
 			T elem = it.next();
-			it.remove(); // get rid of original list as we go
+			it.remove(); // Get rid of original list as we go
 			if (elem.compareTo(pivot) < 0) {
 				left.addToRear(elem);
 			} else {
@@ -86,11 +86,11 @@ public class Sort {
 			}
 		}
 
-		//3rd, Recursively sort each partition
+		// Recursively sort each section
 		quicksort(left);
 		quicksort(right);
 
-		//4th, Rebuild original list — left elements, pivot, right elements
+		// Rebuild original list
 		ListIterator<T> leftIt = left.listIterator();
 		while (leftIt.hasNext()) {
 			list.addToRear(leftIt.next());
@@ -122,13 +122,13 @@ public class Sort {
 		if (list.size() <= 1) {
 			return;
 		}
-		//1st, Remove the pivot (first element)
+		// Remove the pivot
 		T pivot = list.removeFirst();
-		// 2nd, Partition remaining elements into left (< pivot) and right (>= pivot)
-		// Iterator-only traversal — no indexed methods — preserves O(n) per level
-		IndexedUnsortedList<T> left  = newList();
+
+		// Assign new lists
+		IndexedUnsortedList<T> left = newList();
 		IndexedUnsortedList<T> right = newList();
- 
+
 		ListIterator<T> it = list.listIterator();
 		while (it.hasNext()) {
 			T elem = it.next();
@@ -139,19 +139,19 @@ public class Sort {
 				right.addToRear(elem);
 			}
 		}
- 
-		//3rd, Recursively sort each partition
+
+		// Recursively sort each section
 		quicksort(left, c);
 		quicksort(right, c);
- 
-		//4th, Rebuild original list — left elements, pivot, right elements
+
+		// Rebuild original list
 		ListIterator<T> leftIt = left.listIterator();
 		while (leftIt.hasNext()) {
 			list.addToRear(leftIt.next());
 		}
- 
+
 		list.addToRear(pivot);
- 
+
 		ListIterator<T> rightIt = right.listIterator();
 		while (rightIt.hasNext()) {
 			list.addToRear(rightIt.next());
