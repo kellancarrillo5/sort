@@ -290,17 +290,17 @@ public class IUDoubleLinkedList<T> implements IndexedUnsortedList<T> {
     }
 
     @Override
-    public Iterator iterator() {
+    public Iterator<T> iterator() {
         return new DLLIterator();
     }
 
     @Override
-    public ListIterator listIterator() {
+    public ListIterator<T> listIterator() {
         return new DLLIterator();
     }
 
     @Override
-    public ListIterator listIterator(int startingIndex) {
+    public ListIterator<T> listIterator(int startingIndex) {
         return new DLLIterator(startingIndex);
     }
 
